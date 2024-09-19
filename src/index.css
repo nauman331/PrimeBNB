@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-image: url("./assets/backg.png");
+  background-size: cover;
+  background-position: center;
+  color: white;
+  overflow-x: hidden;
+  background-color: black;
+}
