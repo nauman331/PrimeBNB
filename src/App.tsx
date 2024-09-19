@@ -1,7 +1,7 @@
 import Home from "./pages/Home";
 import Dashboard from "./pages/Dashboard";
 import Login from "./pages/Login";
-import Timer from "./pagecomponents/Timer";
+import Timer from "./pagecomponents/timer";
 import Calculator from "./pages/Calculator";
 import { Routes, Route } from "react-router-dom";
 import useWeb3 from "./web3/webConfig/web3";
