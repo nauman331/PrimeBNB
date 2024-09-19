@@ -1,6 +1,7 @@
 import Home from "./pages/Home";
 import Dashboard from "./pages/Dashboard";
 import Login from "./pages/Login";
+import Timer from "./pagecomponents/Timer";
 import Calculator from "./pages/Calculator";
 import { Routes, Route } from "react-router-dom";
 import useWeb3 from "./web3/webConfig/web3";
@@ -20,6 +21,7 @@ function App() {
       <Route path="/dashboard" element={<Dashboard />} />
       <Route path="/calculator" element={<Calculator />} />
       <Route path="/login" element={<Login />} />
+      <Route path="/timer" element={<Timer />} />
     </Routes>
   );
 }

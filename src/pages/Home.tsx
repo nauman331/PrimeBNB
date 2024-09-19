@@ -21,7 +21,7 @@ const Home: React.FC = () => {
         >
           Docs
         </a>
-        <Link to='/login'
+        <Link to='/timer'
           className="bg-yellow-400 px-4 py-1 text-white hover:bg-yellow-500"
         >
          LOGIN
