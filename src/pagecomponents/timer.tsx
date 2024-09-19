@@ -113,7 +113,7 @@ const Timer: React.FC = () => {
         </div>
         <div className="flex justify-between sm:px-4">
           <div className="flex flex-col justify-center items-center gap-3">
-            <span className="py-3 px-3 flex justify-center items-center bg-[#88BDBC] text-[#112D32] text-3xl font-semibold rounded-md">
+            <span className="py-3 px-3 flex justify-center items-center bg-yellow-400 text-gray-950 text-3xl font-semibold rounded-md">
               {countDownTime?.days}
             </span>
             <span className="text-sm text-[#FBFAF8] font-bold">
@@ -121,7 +121,7 @@ const Timer: React.FC = () => {
             </span>
           </div>
           <div className="flex flex-col justify-center items-center gap-3">
-            <span className="py-3 px-3 bg-[#88BDBC] text-[#112D32] text-3xl font-semibold rounded-md">
+            <span className="py-3 px-3 bg-yellow-400 text-gray-950 text-3xl font-semibold rounded-md">
               {countDownTime?.hours}
             </span>
             <span className="text-sm text-[#FBFAF8] font-bold">
@@ -129,7 +129,7 @@ const Timer: React.FC = () => {
             </span>
           </div>
           <div className="flex flex-col justify-center items-center gap-3">
-            <span className="py-3 px-3 bg-[#88BDBC] text-[#112D32] text-3xl font-semibold rounded-md">
+            <span className="py-3 px-3 bg-yellow-400 text-gray-950 text-3xl font-semibold rounded-md">
               {countDownTime?.minutes}
             </span>
             <span className="text-sm text-[#FBFAF8] font-bold">
@@ -137,7 +137,7 @@ const Timer: React.FC = () => {
             </span>
           </div>
           <div className="flex flex-col justify-center items-center gap-3">
-            <span className="py-3 px-3 bg-[#88BDBC] text-[#112D32] text-3xl font-semibold rounded-md">
+            <span className="py-3 px-3 bg-yellow-400 text-gray-950 text-3xl font-semibold rounded-md">
               {countDownTime?.seconds}
             </span>
             <span className="text-sm text-[#FBFAF8] font-bold">
