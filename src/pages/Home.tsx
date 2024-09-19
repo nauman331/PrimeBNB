@@ -14,14 +14,13 @@ const Home: React.FC = () => {
         <Link to="/">
           <img src={profile} alt="PrimeBNB" className="h-16 w-20" />
         </Link>
-        <a
-          href={PDF}
-          download={PDF}
+        <Link 
+        to='timer'
           className="text-white border-b-0 hover:border-b-2 border-b-white"
         >
-          Docs
-        </a>
-        <Link to='/timer'
+          Launch Date
+        </Link>
+        <Link to='/login'
           className="bg-yellow-400 px-4 py-1 text-white hover:bg-yellow-500"
         >
          LOGIN
