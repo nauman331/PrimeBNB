@@ -4,7 +4,6 @@ import Carousel from "../pagecomponents/carousel";
 import Accordion from "../pagecomponents/accordion";
 import { Link } from "react-router-dom";
 import Chart from "../pagecomponents/Chart";
-import PDF from "../assets/PrimeBNB.pdf"
 
 const Home: React.FC = () => {
 
