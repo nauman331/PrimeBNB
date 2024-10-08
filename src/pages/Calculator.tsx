@@ -1,5 +1,5 @@
 // src/components/Calculator.tsx
-import React, { useState } from 'react';
+import  { useState } from 'react';
 import { Link } from "react-router-dom"
 import LeftNav from '../pagecomponents/leftnav';
 import { MenuIcon, XIcon } from "lucide-react"

@@ -4,7 +4,6 @@ import {
     AccordionItem,
     AccordionTrigger,
   } from "../components/ui/accordion"
-   
 
 const accordion = () => {
   return (

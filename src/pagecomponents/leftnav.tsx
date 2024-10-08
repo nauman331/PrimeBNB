@@ -1,7 +1,7 @@
 import { HomeIcon, Calculator, LayoutDashboardIcon, Book } from "lucide-react"
 import { Link } from "react-router-dom"
 import PDF from "../assets/PrimeBNB.pdf"
-
+import React from "react"
 interface Margin {
   ml: boolean
 }
@@ -34,7 +34,7 @@ const leftnav: React.FC<Margin> = ({ml}) => {
         <div className="mt-36 border-2 border-yellow-400 py-1 px-3 m-3">
           <h1>Contact Us:</h1>
           <p className="text-[0.5rem]">Our team actively solving the problems of users</p>
-        <a href="mailto:" className="bg-yellow-400 hover:bg-yellow-500 mt-1">Contact Us</a>
+        <a href="https://t.me/primebnb01" className="bg-yellow-400 hover:bg-yellow-500 px-2 mt-1 text-gray-950">Telegram</a>
         </div>
 
       </div>

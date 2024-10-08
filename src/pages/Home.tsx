@@ -4,6 +4,7 @@ import Carousel from "../pagecomponents/carousel";
 import Accordion from "../pagecomponents/accordion";
 import { Link } from "react-router-dom";
 import Chart from "../pagecomponents/Chart";
+import PDF from "../assets/PrimeBNB.pdf"
 
 const Home: React.FC = () => {
 
@@ -13,13 +14,14 @@ const Home: React.FC = () => {
         <Link to="/">
           <img src={profile} alt="PrimeBNB" className="h-16 w-20" />
         </Link>
-        <Link 
-        to='timer'
+        <a
+          href={PDF}
+          download={PDF}
           className="text-white border-b-0 hover:border-b-2 border-b-white"
         >
-          Launch Date
-        </Link>
-        <Link to='/login'
+          Docs
+        </a>
+        <Link to='/dashboard'
           className="bg-yellow-400 px-4 py-1 text-white hover:bg-yellow-500"
         >
          LOGIN

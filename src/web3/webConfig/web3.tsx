@@ -1,56 +1,40 @@
-import { useState, useEffect } from "react";
 import Web3 from "web3";
 
-// Définition de l'interface pour typer l'état Web3
-interface Web3State {
-  web3: Web3 | null;
-  isConnected: boolean;
-  error: string | null;
-}
+const BSC_RPC_URLS: string[] = [
+  "https://opbnb-mainnet-rpc.bnbchain.org",
+];
 
-const useWeb3 = () => {
-  const rpcUrl = 'https://bsc-dataseed.binance.org/'; // RPC URL de la Binance Smart Chain
-  const [web3State, setWeb3State] = useState<Web3State>({
-    web3: null,
-    isConnected: false,
-    error: null,
-  });
+const getAvailableProvider = async (rpcUrls: string[]): Promise<Web3> => {
+  for (const url of rpcUrls) {
+    try {
+      const web3Instance = new Web3(
+        new Web3.providers.HttpProvider(url,) // Timeout of 10 seconds
+      );
 
-  useEffect(() => {
-    const initWeb3 = async () => {
-      try {
-        const web3 = new Web3(new Web3.providers.HttpProvider(rpcUrl));
-
-        const isListening = await web3.eth.net.isListening();
-        if (isListening) {
-          setWeb3State({
-            web3,
-            isConnected: true,
-            error: null,
-          });
-        } else {
-          throw new Error("Cannot connect to the BSC node");
-        }
-      } catch (error: unknown) {
-        let errorMessage: string;
-        if (error instanceof Error) {
-          errorMessage = error.message;
-        } else {
-          errorMessage = "Unknown error occurred";
-        }
-
-        setWeb3State({
-          web3: null,
-          isConnected: false,
-          error: errorMessage,
-        });
+      const isListening = await web3Instance.eth.net.isListening();
+      if (isListening) {
+        console.log(`Connected to BSC node: ${url}`);
+        return web3Instance;
       }
-    };
+    } catch (error) {
+      console.log(`Failed to connect to BSC node: ${url}`, error);
+    }
+  }
 
-    initWeb3();
-  }, [rpcUrl]);
-
-  return web3State;
+  throw new Error("All BSC RPC nodes are unavailable");
 };
 
-export default useWeb3;
+export const InitWeb3 = async (): Promise<Web3 | undefined> => {
+  let web3: Web3 | undefined;
+
+  try {
+    console.log("Initializing Web3...");
+    web3 = await getAvailableProvider(BSC_RPC_URLS);
+    console.log("Web3 initialized successfully", web3);
+    return web3;
+  } catch (error) {
+    console.error("Failed to initialize Web3:", error);
+  }
+
+  return undefined;
+};

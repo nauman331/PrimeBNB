@@ -4,7 +4,6 @@ import Autoplay from "embla-carousel-autoplay";
 import banner1 from "../assets/banner1.webp";
 import banner2 from "../assets/banner2.webp";
 import banner3 from "../assets/banner3.webp";
-
 // changed
 import {
   Carousel,

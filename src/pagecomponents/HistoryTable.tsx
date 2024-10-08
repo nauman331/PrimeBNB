@@ -35,40 +35,40 @@ import {
 const data: Payment[] = [
   {
     id: "m5gr84i9",
-    amount: 316,
+    amount: 3,
     status: "success",
-    email: "ken99@yahoo.com",
+    email: "0xacbfa603659f38a50B06a5E898C379c2eDf77Df3",
   },
   {
     id: "3u1reuv4",
-    amount: 242,
+    amount: 2,
     status: "success",
-    email: "Abe45@gmail.com",
+    email: "0xacbfa603659f38a50B06a5E898C379c2eDf77Df4",
   },
   {
     id: "derv1ws0",
-    amount: 837,
+    amount: 8,
     status: "processing",
-    email: "Monserrat44@gmail.com",
+    email: "0xacbfa603659f38a50B06a5E898C379c2eDf77Df9",
   },
   {
     id: "5kma53ae",
-    amount: 874,
+    amount: 7,
     status: "success",
-    email: "Silas22@gmail.com",
+    email: "0xacbfa603659f38a50B06a5E898C379c2eDf77Df1",
   },
   {
     id: "bhqecj4p",
-    amount: 721,
-    status: "failed",
-    email: "carmella@hotmail.com",
+    amount: 11,
+    status: "success",
+    email: "0xacbfa603659f38a50B06a5E898C379c2eDf77Df7",
   },
 ]
 
 export type Payment = {
   id: string
   amount: number
-  status: "pending" | "processing" | "success" | "failed"
+  status: "pending" | "processing" | "success" 
   email: string
 }
 
@@ -151,7 +151,7 @@ export default function DataTableDemo() {
     <div className="w-full">
       <div className="flex items-center py-4">
         <Input
-          placeholder="Filter emails..."
+          placeholder="Filter Last 5 Transactions"
           value={(table.getColumn("email")?.getFilterValue() as string) ?? ""}
           onChange={(event) =>
             table.getColumn("email")?.setFilterValue(event.target.value)

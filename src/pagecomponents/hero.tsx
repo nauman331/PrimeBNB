@@ -2,7 +2,6 @@ import Ripple from "../components/magicui/ripple";
 import { Button } from "../components/ui/button";
 import BoxReveal from "../components/magicui/box-reveal";
 import IconCloud from "../components/magicui/icon-cloud";
-
 const slugs = [
   "solana",
   "bitcoin",
