@@ -329,28 +329,8 @@ const Dashboard: React.FC = () => {
                           className="h-8 w-8"
                         />
                       </div>
-                      <div
-                        className="flex items-center justify-between bg-gray-800 p-4 rounded-lg cursor-pointer hover:bg-gray-700"
-                        onClick={() => handleWalletConnect()}
-                      >
-                        <span>Trust Wallet</span>
-                        <img
-                          src="https://avatars.githubusercontent.com/u/32179889?s=200&v=4"
-                          alt="Trust Wallet"
-                          className="h-8 w-8"
-                        />
-                      </div>
-                      <div
-                        className="flex items-center justify-between bg-gray-800 p-4 rounded-lg cursor-pointer hover:bg-gray-700"
-                        onClick={() => handleWalletConnect()}
-                      >
-                        <span>TokenPocket</span>
-                        <img
-                          src="https://www.yadawallets.com/wp-content/uploads/2020/11/TokenPocket-wallet-logo.png"
-                          alt="TokenPocket"
-                          className="h-8 w-8"
-                        />
-                      </div>
+                     
+                      
                     </div>
                     <DialogFooter>
                       <Button
@@ -409,7 +389,7 @@ const Dashboard: React.FC = () => {
                     <Copy
                       onClick={() => {
                         navigator.clipboard.writeText(referralLink);
-                        alert("Link copied to clipboard");
+                        toast.success("Link copied to clipboard");
                       }}
                       className="h-4 w-4"
                     />
