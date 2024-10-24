@@ -4,7 +4,7 @@ import { Button } from "../components/ui/button";
 import { MenuIcon, Copy, XIcon } from "lucide-react";
 import style from "./dash.module.scss";
 import { useEffect, useState } from "react";
-import PDF from "../assets/PrimeBNB.pdf";
+// import PDF from "../assets/PrimeBNB.pdf";
 import {
   Dialog,
   DialogContent,
@@ -24,7 +24,6 @@ import plan3 from "../assets/plan3.webp";
 import plan4 from "../assets/plan4.webp";
 import plan5 from "../assets/plan5.webp";
 import profile from "../assets/logo.webp";
-import Chart from "../pagecomponents/Chart";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css"; // Optionnel pour
 import { ClaimDivs, TakeAction } from "../web3/webConfig/setters/setters";
@@ -42,6 +41,7 @@ import {
   GetUserDownliners,
   GetAccount,
 } from "../web3/webConfig/setters/getters";
+import toast from "react-hot-toast";
 
 const Dashboard: React.FC = () => {
   const [open, setOpen] = useState<boolean>(true);
@@ -88,7 +88,7 @@ const Dashboard: React.FC = () => {
 
       const account = await GetAccount();
       if (!account) {
-        alert(
+        toast.error(
           " No account found. Please connect to your wallet to get your referral link.  "
         );
       }
@@ -159,10 +159,8 @@ const Dashboard: React.FC = () => {
   const getEthereum = async () => {
     const ethereum = window.ethereum;
     if (!ethereum) {
-      alert("Please install Metamask to connect to your Ethereum wallet.");
-      console.log(
-        " Please install Metamask to connect to your Ethereum wallet."
-      );
+      toast.error("Please install Metamask to connect to your Ethereum wallet.");
+      
       return;
     } else {
       console.log("Metamask is already installed.", ethereum);
@@ -212,14 +210,14 @@ const Dashboard: React.FC = () => {
       setCanLoad(true);
 
       if (!walletAddress) {
-        alert("Please connect your wallet to proceed");
+        console.error("Please connect your wallet to proceed");
         setCanLoad(false);
 
         return;
       }
       const account = await GetAccount();
       if (!account) {
-        alert(
+        console.error(
           " No account found. Please connect to your wallet to get your referral link.  "
         );
       }
@@ -230,16 +228,16 @@ const Dashboard: React.FC = () => {
 
       const Action = await TakeAction(index, upline);
       if (Action) {
-        alert("Level Purchased Successfully");
+        toast.success("Level Purchased Successfully");
         getPlans();
         setCanLoad(false);
       } else {
         setCanLoad(false);
 
-        alert("Failed to Purchase Level");
+        toast.error("Failed to Purchase Level");
       }
     } catch (error) {
-      console.error("Failed to get upline", error);
+      toast.error("Failed to get upline");
       setCanLoad(false);
     }
   };
@@ -248,21 +246,21 @@ const Dashboard: React.FC = () => {
     try {
       setCanLoad(true);
       if (!walletAddress) {
-        alert("Please connect your wallet to proceed");
+        toast.error("Please connect your wallet to proceed");
         setCanLoad(false);
         return;
       }
       const claim = await ClaimDivs(index);
       if (claim) {
-        alert("BNB Withdrawn Successfully");
+        toast.success("BNB Withdrawn Successfully 😎");
         getPlans();
         setCanLoad(false);
       } else {
         setCanLoad(false);
-        alert("Failed to Withdraw Divs");
+        toast.error("Failed to Withdraw Divs");
       }
     } catch (error) {
-      console.error("Failed to withdraw", error);
+      toast.error("Failed to withdraw");
     }
   };
 
@@ -275,8 +273,8 @@ const Dashboard: React.FC = () => {
           <img src={profile} alt="PrimeBNB" className="h-16 w-20" />
         </Link>
         <a
-          href={PDF}
-          download={PDF}
+          href=''
+       
           className="text-white border-b-0 hover:border-b-2 border-b-white"
         >
           Docs
@@ -368,11 +366,11 @@ const Dashboard: React.FC = () => {
             </div>
             <p>
               Deposited Amount:{" "}
-              <span className="text-yellow-400">{depositedAmount} BNB</span>
+              <span className="text-yellow-400">{depositedAmount} opBNB</span>
             </p>
             <p>
               Withdrawn Amount:{" "}
-              <span className="text-yellow-400">{withdrawnAmount} BNB</span>
+              <span className="text-yellow-400">{withdrawnAmount} opBNB</span>
             </p>
             <Dialog>
               <DialogTrigger asChild>
@@ -404,7 +402,7 @@ const Dashboard: React.FC = () => {
                   </div>
                   <Button
                     type="submit"
-                    size="sm"
+                   
                     className="px-3 bg-yellow-400 hover:bg-yellow-500"
                   >
                     <span className="sr-only">Copy</span>
@@ -448,8 +446,8 @@ const Dashboard: React.FC = () => {
                 <h1 className="text-yellow-400 text-xl font-extrabold">
                   PLAN1:
                 </h1>
-                <p className="text-xs">Price: 0.01 BNB</p>
-                <p className="text-xs">Daily Earning: 3%</p>
+                <p className="text-xs">Price: 10$ of opBNB</p>
+                <p className="text-xs">Daily Earning: 5%</p>
                 <p className="text-xs">Per Refferal Earning: 10%</p>
                 <button
                   onClick={() => handleActionClick(1)}
@@ -472,8 +470,8 @@ const Dashboard: React.FC = () => {
                 <h1 className="text-yellow-400 text-xl font-extrabold">
                   PLAN2:
                 </h1>
-                <p className="text-xs">Price: 0.05 BNB</p>
-                <p className="text-xs">Daily Earning: 3%</p>
+                <p className="text-xs">Price: 20$ of opBNB</p>
+                <p className="text-xs">Daily Earning: 5%</p>
                 <p className="text-xs">Per Refferal Earning: 10%</p>
                 <button
                   onClick={() => handleActionClick(2)}
@@ -497,8 +495,8 @@ const Dashboard: React.FC = () => {
             />
             <div className="text">
               <h1 className="text-yellow-400 text-xl font-extrabold">PLAN3:</h1>
-              <p className="text-xs">Price: 0.1 BNB</p>
-              <p className="text-xs">Daily Earning: 3%</p>
+              <p className="text-xs">Price: 30$ of opBNB</p>
+              <p className="text-xs">Daily Earning: 5%</p>
               <p className="text-xs">Per Refferal Earning: 10%</p>
               <button
                 onClick={() => handleActionClick(3)}
@@ -519,7 +517,7 @@ const Dashboard: React.FC = () => {
             />
             <div className="text">
               <h1 className="text-yellow-400 text-xl font-extrabold">PLAN4:</h1>
-              <p className="text-xs">Price: 0.15 BNB</p>
+              <p className="text-xs">Price: 50$ of opBNB</p>
               <p className="text-xs">Daily Earning: 3%</p>
               <p className="text-xs">Per Refferal Earning: 10%</p>
               <button
@@ -542,8 +540,8 @@ const Dashboard: React.FC = () => {
             />
             <div className="text">
               <h1 className="text-yellow-400 text-xl font-extrabold">PLAN5:</h1>
-              <p className="text-xs">Price: 0.2 BNB</p>
-              <p className="text-xs">Daily Earning: 3%</p>
+              <p className="text-xs">Price: 500$ of opBNB</p>
+              <p className="text-xs">Daily Earning: 5%</p>
               <p className="text-xs">Per Refferal Earning: 10%</p>
               <button
                 onClick={() => handleActionClick(5)}
@@ -562,7 +560,7 @@ const Dashboard: React.FC = () => {
             </div>
             <div className="text-lg font-bold">
               Total Income
-              <h1 className="text-yellow-400">+ {totalIncome} BNB</h1>
+              <h1 className="text-yellow-400">+ {totalIncome} opBNB</h1>
             </div>
           </div>
           <div className="p-5 flex-1 my-3 flex items-center justify-evenly md:w-1/3 w-[calc(100vw-3rem)] bg-gray-950 h-28 backdrop-filter backdrop-blur-sm bg-opacity-0 border border-white">
@@ -572,11 +570,11 @@ const Dashboard: React.FC = () => {
             </div>
             <div className="text-lg font-bold">
               Members Recieved
-              <h1 className="text-yellow-400">{totalWithdrawals} BNB</h1>
+              <h1 className="text-yellow-400">{totalWithdrawals} opBNB</h1>
             </div>
             <div className="text-lg font-bold">
               Members Deposited
-              <h1 className="text-yellow-400">{totalDeposits} BNB</h1>
+              <h1 className="text-yellow-400">{totalDeposits} opBNB</h1>
             </div>
           </div>
         </div>
@@ -596,7 +594,7 @@ const Dashboard: React.FC = () => {
                 <div className={style.infoItem}>
                   <span className={style.label}>Amount:</span>
                   <span className={style.value}>
-                    {Number(plan.amount) / 1e18} BNB
+                    {Number(plan.amount) / 1e18} opBNB
                   </span>
                 </div>
                 <div className={style.infoItem}>
@@ -617,7 +615,7 @@ const Dashboard: React.FC = () => {
                 <div className={style.availableDivs}>
                   {availableDivs &&
                     (Number(availableDivs[index]) / 1e18).toFixed(9)}{" "}
-                  BNB
+                  opBNB
                 </div>
               </div>
               <button
@@ -628,8 +626,6 @@ const Dashboard: React.FC = () => {
               </button>
             </div>
           ))}
-
-        <Chart />
         <HistoryTable />
       </section>
     </>

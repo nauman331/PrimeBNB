@@ -3,8 +3,7 @@ import profile from "../assets/logo.webp"
 import Carousel from "../pagecomponents/carousel";
 import Accordion from "../pagecomponents/accordion";
 import { Link } from "react-router-dom";
-import Chart from "../pagecomponents/Chart";
-import PDF from "../assets/PrimeBNB.pdf"
+// import PDF from "../assets/PrimeBNB.pdf"
 
 const Home: React.FC = () => {
 
@@ -15,8 +14,8 @@ const Home: React.FC = () => {
           <img src={profile} alt="PrimeBNB" className="h-16 w-20" />
         </Link>
         <a
-          href={PDF}
-          download={PDF}
+          href=''
+       
           className="text-white border-b-0 hover:border-b-2 border-b-white"
         >
           Docs
@@ -29,7 +28,6 @@ const Home: React.FC = () => {
       </div>
     <Hero />
   <Carousel />
- <Chart />
   <h1 className="text-center text-white md:text-[2rem] text-[1rem] my-10">Frequently asked Questions</h1>
  <Accordion />
  <div className="text-center mt-10">

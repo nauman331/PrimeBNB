@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 import LeftNav from '../pagecomponents/leftnav';
 import { MenuIcon, XIcon } from "lucide-react"
 import profile from "../assets/logo.webp"
-import PDF from "../assets/PrimeBNB.pdf"
+// import PDF from "../assets/PrimeBNB.pdf"
 import {
   Select,
   SelectContent,
@@ -34,8 +34,8 @@ const Calculator: React.FC = () => {
                     <img src={profile} alt="PrimeBNB" className="h-16 w-20" />
                 </Link>
                 <a
-                    href={PDF}
-                    download={PDF}
+                    href=''
+                    
                     className="text-white border-b-0 hover:border-b-2 border-b-white"
                 >
                     Docs
@@ -74,18 +74,18 @@ const Calculator: React.FC = () => {
                                 <SelectContent>
                                     <SelectGroup className='bg-gray-950 text-white'>
                                         <SelectLabel>Plans</SelectLabel>
-                                        <SelectItem value="0.01">Plan 1</SelectItem>
-                                        <SelectItem value="0.05">Plan 2</SelectItem>
-                                        <SelectItem value="0.1">Plan 3</SelectItem>
-                                        <SelectItem value="0.15">Plan 4</SelectItem>
-                                        <SelectItem value="0.2">Plan 5</SelectItem>
+                                        <SelectItem value="0.0175">Plan 1</SelectItem>
+                                        <SelectItem value="0.03438">Plan 2</SelectItem>
+                                        <SelectItem value="0.05286">Plan 3</SelectItem>
+                                        <SelectItem value="0.086">Plan 4</SelectItem>
+                                        <SelectItem value="0.86">Plan 5</SelectItem>
                                     </SelectGroup>
                                 </SelectContent>
                             </Select>
                         </label>
                     </div>
                     <button onClick={calculate} className='bg-yellow-400 hover:bg-yellow-500 py-3 md:w-96 w-64'>Calculate</button>
-                    {result !== null && <h2>Result: {result} <span className='text-yellow-400'>BNB</span></h2>}
+                    {result !== null && <h2>Result: {result} <span className='text-yellow-400'>opBNB</span></h2>}
                 </div>
             </section>
         </>

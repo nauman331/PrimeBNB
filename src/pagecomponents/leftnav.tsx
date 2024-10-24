@@ -1,6 +1,6 @@
 import { HomeIcon, Calculator, LayoutDashboardIcon, Book } from "lucide-react"
 import { Link } from "react-router-dom"
-import PDF from "../assets/PrimeBNB.pdf"
+// import PDF from "../assets/PrimeBNB.pdf"
 import React from "react"
 interface Margin {
   ml: boolean
@@ -25,8 +25,8 @@ const leftnav: React.FC<Margin> = ({ml}) => {
         <Calculator />
         Calculator
         </Link>
-        <a href={PDF}
-          download={PDF} className="flex items-center gap-2 text-white p-3 hover:bg-yellow-400">
+        <a href=''
+          className="flex items-center gap-2 text-white p-3 hover:bg-yellow-400">
         <Book />
         Docs
         </a>

@@ -1,5 +1,5 @@
 
-
+import toast from "react-hot-toast";
 import { PrimeContract } from "../contracts/prime";
 import { InitWeb3 } from "../web3";
 
@@ -15,7 +15,7 @@ export const GetAccount = async ()=> {
         return accounts[0];
         
     } catch (error : unknown) {
-        console.error("Error getting account", error);
+        toast.error(`Error getting account: ${error}`);
         
     }
 }
@@ -24,10 +24,10 @@ export const GetPlanOfUser = async (): Promise<any> => {
     try {
         const web3 = await InitWeb3();
         const account = await GetAccount();
-        console.log("Account:", account);
+        toast.success('Connected Successfully!');
 
         if (!web3 || !account) {
-            console.error("No web3 or account found");
+            toast.error("No web3 or account found");
             return null; // Return null to indicate failure
         }
 
@@ -38,12 +38,12 @@ export const GetPlanOfUser = async (): Promise<any> => {
             console.log("User Plan:", plan);
             return plan;
         } catch (error) {
-            console.error("Error getting user plan:", error);
+            toast.error("Error getting user plan");
             return null; // Return null on error to indicate failure
         }
 
     } catch (error: unknown) {
-        console.error("Error initializing Web3 or getting user account:", error);
+        toast.error("Error initializing Web3 or getting user account");
         return null; // Return null on error to indicate failure
     }
 };
@@ -56,7 +56,7 @@ export const GetAvailableDivs = async (index:number): Promise<any> => {
         const account = await GetAccount();
         console.log("Account:", account);
         if (!web3 ||!account) {
-            console.error("No web3 or account found");
+            toast.error("No web3 or account found");
             return null; // Return null to indicate failure
         }
         const contract = new web3.eth.Contract(PrimeContract.abi, PrimeContract.address);
@@ -66,12 +66,12 @@ export const GetAvailableDivs = async (index:number): Promise<any> => {
             console.log("Available Divs:", divs);
             return divs;
         } catch (error) {
-            console.error("Error getting available divs:", error);
+            toast.error("Error getting available divs");
             return null; // Return null on error to indicate failure
         }
         
     } catch (error: unknown) {
-        console.error("Error initializing Web3 or getting user account:", error);
+        toast.error("Error initializing Web3 or getting user account");
         return null; // Return null on error to indicate failure
    
     }
@@ -90,7 +90,7 @@ export const GetTotalUsers = async (): Promise<any> => {
   try {
     const web3 = await InitWeb3();
     if (!web3) {
-      console.error("Web3 not initialized.");
+      toast.error("Web3 not initialized.");
       return null;
     }
 
@@ -99,7 +99,7 @@ export const GetTotalUsers = async (): Promise<any> => {
     const totalUsers = await contract.methods.totalUsers().call();
     return totalUsers;
   } catch (error) {
-    console.error("Error fetching total users", error);
+    toast.error("Error fetching total users");
     return false;
   }
 };
@@ -109,7 +109,7 @@ export const GetTotalDeposits = async (): Promise<any> => {
   try {
     const web3 = await InitWeb3();
     if (!web3) { 
-      console.error("Web3 not initialized.");
+      toast.error("Web3 not initialized.");
       return 0;
     }
     const contract = new web3.eth.Contract(PrimeContract.abi, PrimeContract.address);
@@ -120,7 +120,7 @@ export const GetTotalDeposits = async (): Promise<any> => {
     
     return totalDeposits;
   } catch (error) {
-    console.error("Error fetching total deposits", error);
+    toast.error("Error fetching total deposits");
     return false;
   }
 };
@@ -130,7 +130,7 @@ export const GetTotalWithdrawals = async (): Promise<any> => {
   try {
     const web3 = await InitWeb3();
     if (!web3) {
-      console.log("Web3 not initialized.");
+      toast.error("Web3 not initialized.");
       return null;
     }
     const contract = new web3.eth.Contract(PrimeContract.abi, PrimeContract.address);
@@ -139,7 +139,7 @@ export const GetTotalWithdrawals = async (): Promise<any> => {
     console.log('total withdrawals ', totalWithdrawals)
     return totalWithdrawals;
   } catch (error) {
-    console.error("Error fetching total withdrawals", error);
+    toast.error("Error fetching total withdrawals");
     return null;
   }
 };
@@ -157,7 +157,7 @@ export const GetTotalIncomeOfUser = async (): Promise<any> => {
     console.log('total income ', totalIncome)
     return totalIncome;
   } catch (error) {
-    console.error("Error fetching total income", error);
+    toast.error("Error fetching total income");
     return null;
   }
 };
@@ -175,7 +175,7 @@ export const GetUserDepositedAmount = async (): Promise<any> => {
     console.log('deposited amount ', depositedAmount)
     return depositedAmount;
   } catch (error) {
-    console.error("Error fetching user's deposited amount", error);
+    toast.error("Error fetching user's deposited amount");
     return null;
   }
 };
@@ -193,7 +193,7 @@ export const GetUserWithdrawnAmount = async (): Promise<any> => {
     console.log("withdrawn amount ", withdrawnAmount)
     return withdrawnAmount;
   } catch (error) {
-    console.error("Error fetching user's withdrawn amount", error);
+    toast.error("Error fetching user's withdrawn amount");
     return null;
   }
 };
@@ -214,7 +214,7 @@ export const GetUserDownliners = async (): Promise<any> => {
       
       
     } catch (error) {
-      console.error("Error fetching downliners", error);
+      toast.error("Error fetching downliners");
       return [];
     }
   };

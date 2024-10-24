@@ -19,13 +19,13 @@ const accordion = () => {
       <AccordionItem value="item-2">
         <AccordionTrigger>What is minimum investment?</AccordionTrigger>
         <AccordionContent>
-          Them minimum investment on PrimeBNB is 0.01 BNB.
+          Them minimum investment on PrimeBNB is 10$ of opBNB.
         </AccordionContent>
       </AccordionItem>
       <AccordionItem value="item-3">
-        <AccordionTrigger>Can we earn extra BNB?</AccordionTrigger>
+        <AccordionTrigger>Can we earn extra opBNB?</AccordionTrigger>
         <AccordionContent>
-          Yes. You can earn extra BNB by Reffering other users through your refferal link.
+          Yes. You can earn extra opBNB by Reffering other users through your refferal link.
         </AccordionContent>
       </AccordionItem>
     </Accordion>

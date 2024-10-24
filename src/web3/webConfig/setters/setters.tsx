@@ -1,19 +1,21 @@
 import { PrimeContract } from "../contracts/prime";
 import { InitWeb3 } from "../web3";
 import { GetAccount, GetAvailableDivs } from "./getters";
+import toast from "react-hot-toast";
+
 export const BuyAPlan = async (index: number): Promise<boolean> => {
     console.log("Buying plan", index);
     try {
         const web3 = await InitWeb3();
         if (!web3) {
-            console.error("Web3 not initialized.");
+            toast.error("Web3 not initialized.");
             return false;
         }
 
         const contract = new web3.eth.Contract(PrimeContract.abi, PrimeContract.address);
         const account = await GetAccount();
         if (!account) {
-            console.error("No account found.");
+            toast.error("No account found.");
             return false;
         }
 
@@ -22,7 +24,7 @@ export const BuyAPlan = async (index: number): Promise<boolean> => {
         console.log({ account, planIndex: index, value: price });
 
         if (price === undefined || price === null ) {
-            console.error("Invalid plan index or price.");
+            toast.error("Invalid plan index or price.");
             return false;
         }
 
@@ -38,7 +40,7 @@ export const BuyAPlan = async (index: number): Promise<boolean> => {
                 data: actionTx,
             });
         } catch (error) {
-            console.error("Failed to estimate gas:", error);
+            toast.error("Failed to estimate gas");
             return false;
         }
 
@@ -59,22 +61,22 @@ export const BuyAPlan = async (index: number): Promise<boolean> => {
             
             const ethereum = window.ethereum;
             if (!ethereum) {
-                console.error("No Ethereum browser detected.");
+                toast.error("No Ethereum browser detected.");
                 return false;
             }
             const tx = await ethereum.request({
                 method: "eth_sendTransaction",
                 params: [txData],
             });
-            console.log("Transaction sent successfully:", tx);
+            toast.success(`Transaction sent successfully: ${tx}`);
             return true;
         } catch (txError) {
-            console.error("Transaction failed:", txError);
+            toast.error("Transaction failed");
             return false;
         }
 
     } catch (error: unknown) {
-        console.error("Error occurred while buying a plan:", error);
+        toast.error("Error occurred while buying a plan");
         return false;
     }
 };
@@ -83,30 +85,30 @@ export const TakeAction = async (index: number, sponsor: string): Promise<boolea
     try {
         const web3 = await InitWeb3();
         if (!web3) {
-            console.error("Web3 not initialized.");
+            toast.error("Web3 not initialized.");
             return false;
         }
         
         const contract = new web3.eth.Contract(PrimeContract.abi, PrimeContract.address);
         
         if (!index || !sponsor) {
-            console.error("Invalid plan index or sponsor address.");
+            toast.error("Invalid plan index or sponsor address.");
             return false;
         }
 
         const account = await GetAccount();
         if (!account) {
-            console.error("No account found.");
+            toast.error("No account found.");
             return false;
         }
 
         if (!contract) {
-            console.error("Contract not found.");
+            toast.error("Contract not found.");
             return false;
         }
 
         const isRegistered = await contract.methods.isRegistered(account).call();
-        console.warn(isRegistered ? "User is already registered" : "User is not registered");
+        toast(isRegistered ? "User is already registered" : "User is not registered");
         if (!isRegistered) {
             const regTx = contract.methods.register(sponsor).encodeABI();
     let regEstimatedGas
@@ -120,7 +122,7 @@ export const TakeAction = async (index: number, sponsor: string): Promise<boolea
                 data: regTx,
             });
         } catch (error) {
-            console.error("Failed to estimate gas for registration:", error);
+            toast.error("Failed to estimate gas for registration");
             return false;
                 
         }
@@ -139,7 +141,7 @@ export const TakeAction = async (index: number, sponsor: string): Promise<boolea
             try {
                 const ethereum = window.ethereum;
                 if (!ethereum) {
-                    console.error("No Ethereum browser detected.");
+                    toast.error("No Ethereum browser detected.");
                     return false;
                 }
                 const registration = await ethereum.request({
@@ -148,12 +150,12 @@ export const TakeAction = async (index: number, sponsor: string): Promise<boolea
                 });
 
                 if (!registration) {
-                    console.error("Registration transaction failed.");
+                    toast.error("Registration transaction failed.");
                     return false;
                 }
-                console.log("Registration successful:", registration);
+                toast.success("Registration successful");
             } catch (regError) {
-                console.error("Registration failed:", regError);
+                toast.error("Registration failed");
                 return false;
             }
         }
@@ -163,7 +165,7 @@ export const TakeAction = async (index: number, sponsor: string): Promise<boolea
         return purchaseSuccess;
 
     } catch (error: unknown) {
-        console.error("Error occurred while taking action:", error);
+        toast.error("Error occurred while taking action:");
         return false;
     }
 };
@@ -175,25 +177,25 @@ export const ClaimDivs = async (index: number): Promise<boolean> => {
     try {
         const web3 = await InitWeb3();
         if (!web3) {
-            console.error("Web3 not initialized.");
+            toast.error("Web3 not initialized.");
             return false;
         }
 
         const contract = new web3.eth.Contract(PrimeContract.abi, PrimeContract.address);
         if (!index) {
-            console.error("Invalid plan index.");
+            toast.error("Invalid plan index.");
             return false;
         }
 
         const account = await GetAccount();
         if (!account) {
-            console.error("No account found.");
+            toast.error("No account found.");
             return false;
         }
 
         const divs = await GetAvailableDivs(index);
         if (!divs || divs.length === 0) {
-            console.error("No divs available.");
+            toast.error("No divs available.");
             return false;
         }
 
@@ -209,7 +211,7 @@ export const ClaimDivs = async (index: number): Promise<boolean> => {
                 data: claimTx,
             });
         } catch (error) {
-            console.error("Failed to estimate gas for claiming divs:", error);
+            toast.error("Failed to estimate gas for claiming divs");
             return false;
         }
 
@@ -229,22 +231,22 @@ export const ClaimDivs = async (index: number): Promise<boolean> => {
         try {
             const ethereum = window.ethereum;
             if (!ethereum) {
-                console.error("No Ethereum browser detected.");
+                toast.error("No Ethereum browser detected.");
                 return false;
             }
             const claim = await ethereum.request({
                 method: "eth_sendTransaction",
                 params: [claimTxData],
             });
-            console.log("Divs claiming successful:", claim);
+            toast.success(`Divs claiming successful: ${claim}`);
             return true;
         } catch (claimError) {
-            console.error("Divs claiming transaction failed:", claimError);
+            toast.error("Divs claiming transaction failed");
             return false;
         }
 
     } catch (error: unknown) {
-        console.error("Error occurred while claiming divs:", error);
+        toast.error("Error occurred while claiming divs");
         return false;
     }
 };

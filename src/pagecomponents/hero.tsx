@@ -45,7 +45,7 @@ const Hero = () => {
             <BoxReveal boxColor={"yellow"} duration={0.5}>
               <h2 className="mt-[.5rem] text-[1rem]">
                 Best Platform for
-                <span className="text-yellow-400"> BNB Investment</span>
+                <span className="text-yellow-400"> opBNB Investment</span>
               </h2>
             </BoxReveal>
 
