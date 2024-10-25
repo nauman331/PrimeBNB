@@ -37,39 +37,40 @@ const data: Payment[] = [
     id: "m5gr84i9",
     amount: 3,
     status: "success",
-    email: "0xacbfa603659f38a50B06a5E898C379c2eDf77Df3",
+    Address: "0xacbfa603659f38a50B06a5E898C379c2eDf77Df3",
   },
   {
     id: "3u1reuv4",
     amount: 2,
     status: "success",
-    email: "0xacbfa603659f38a50B06a5E898C379c2eDf77Df4",
+    Address: "0xacbfa603659f38a50B06a5E898C379c2eDf77Df4",
   },
   {
     id: "derv1ws0",
     amount: 8,
     status: "processing",
-    email: "0xacbfa603659f38a50B06a5E898C379c2eDf77Df9",
+    Address: "0xacbfa603659f38a50B06a5E898C379c2eDf77Df9",
   },
   {
     id: "5kma53ae",
     amount: 7,
     status: "success",
-    email: "0xacbfa603659f38a50B06a5E898C379c2eDf77Df1",
+    Address: "0xacbfa603659f38a50B06a5E898C379c2eDf77Df1",
   },
   {
     id: "bhqecj4p",
     amount: 11,
     status: "success",
-    email: "0xacbfa603659f38a50B06a5E898C379c2eDf77Df7",
+    Address: "0xacbfa603659f38a50B06a5E898C379c2eDf77Df7",
   },
+  
 ]
 
 export type Payment = {
   id: string
   amount: number
   status: "pending" | "processing" | "success" 
-  email: string
+  Address: string
 }
 
 export const columns: ColumnDef<Payment>[] = [
@@ -82,7 +83,7 @@ export const columns: ColumnDef<Payment>[] = [
     ),
   },
   {
-    accessorKey: "email",
+    accessorKey: "Address",
     header: ({ column }) => {
       return (
         <Button
@@ -95,7 +96,7 @@ export const columns: ColumnDef<Payment>[] = [
         </Button>
       )
     },
-    cell: ({ row }) => <div className="lowercase">{row.getValue("email")}</div>,
+    cell: ({ row }) => <div className="lowercase">{row.getValue("Address")}</div>,
   },
   {
     accessorKey: "amount",
@@ -152,9 +153,9 @@ export default function DataTableDemo() {
       <div className="flex items-center py-4">
         <Input
           placeholder="Filter Last 5 Transactions"
-          value={(table.getColumn("email")?.getFilterValue() as string) ?? ""}
+          value={(table.getColumn("Address")?.getFilterValue() as string) ?? ""}
           onChange={(event) =>
-            table.getColumn("email")?.setFilterValue(event.target.value)
+            table.getColumn("Address")?.setFilterValue(event.target.value)
           }
           className="max-w-sm bg-gray-950"
         />
