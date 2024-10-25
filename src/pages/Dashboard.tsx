@@ -426,7 +426,7 @@ const Dashboard: React.FC = () => {
                 <h1 className="text-yellow-400 text-xl font-extrabold">
                   PLAN1:
                 </h1>
-                <p className="text-xs">Price: <span className="text-yellow-400 font-bold">0.015 opBNB</span></p>
+                <p className="text-xs">Price: <span className="text-yellow-400 font-bold">0.004 opBNB</span></p>
                 <p className="text-xs">Daily Earning: 5%</p>
                 <p className="text-xs">Per Refferal Earning: 10%</p>
                 <button
@@ -450,7 +450,7 @@ const Dashboard: React.FC = () => {
                 <h1 className="text-yellow-400 text-xl font-extrabold">
                   PLAN2:
                 </h1>
-                <p className="text-xs">Price: <span className="text-yellow-400 font-bold">0.085 opBNB</span></p>
+                <p className="text-xs">Price: <span className="text-yellow-400 font-bold">0.008 opBNB</span></p>
                 <p className="text-xs">Daily Earning: 5%</p>
                 <p className="text-xs">Per Refferal Earning: 10%</p>
                 <button
@@ -475,7 +475,7 @@ const Dashboard: React.FC = () => {
             />
             <div className="text">
               <h1 className="text-yellow-400 text-xl font-extrabold">PLAN3:</h1>
-              <p className="text-xs">Price: <span className="text-yellow-400 font-bold">0.167 opBNB </span></p>
+              <p className="text-xs">Price: <span className="text-yellow-400 font-bold">0.0118 opBNB </span></p>
               <p className="text-xs">Daily Earning: 5%</p>
               <p className="text-xs">Per Refferal Earning: 10%</p>
               <button
@@ -497,7 +497,7 @@ const Dashboard: React.FC = () => {
             />
             <div className="text">
               <h1 className="text-yellow-400 text-xl font-extrabold">PLAN4:</h1>
-              <p className="text-xs">Price: <span className="text-yellow-400 font-bold">0.5 opBNB</span></p>
+              <p className="text-xs">Price: <span className="text-yellow-400 font-bold">0.0196 opBNB</span></p>
               <p className="text-xs">Daily Earning: 3%</p>
               <p className="text-xs">Per Refferal Earning: 10%</p>
               <button
@@ -520,7 +520,7 @@ const Dashboard: React.FC = () => {
             />
             <div className="text">
               <h1 className="text-yellow-400 text-xl font-extrabold">PLAN5:</h1>
-              <p className="text-xs">Price: <span className="text-yellow-400 font-bold">1 opBNB</span></p>
+              <p className="text-xs">Price: <span className="text-yellow-400 font-bold">0.196 opBNB</span></p>
               <p className="text-xs">Daily Earning: 5%</p>
               <p className="text-xs">Per Refferal Earning: 10%</p>
               <button
