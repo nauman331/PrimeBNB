@@ -1,3 +1,11 @@
+/**
+ *Submitted for verification at opbnb.bscscan.com on 2024-10-24
+*/
+
+/**
+ *Submitted for verification at opbnb.bscscan.com on 2024-10-02
+*/
+
 // SPDX-License-Identifier: MIT
 pragma solidity 0.8.26;
 
@@ -98,11 +106,11 @@ contract PrimeBNB is ReentrancyGuard, Ownable {
         owner1 = _owner1;
         owner2 = _owner2;
         
-        levelPrices[1] = 0.015 ether;  
-        levelPrices[2] = 0.085 ether;  
-        levelPrices[3] = 0.167 ether; 
-        levelPrices[4] = 0.5 ether; 
-        levelPrices[5] = 1 ether;  
+        levelPrices[1] = 0.004 ether;  //10$
+        levelPrices[2] = 0.008 ether;  //20$
+        levelPrices[3] = 0.0118 ether; //30$
+        levelPrices[4] = 0.0196 ether; //50$
+        levelPrices[5] = 0.196 ether;  //500$
 
         
         initOwner();
