@@ -19,7 +19,7 @@ const accordion = () => {
       <AccordionItem value="item-2">
         <AccordionTrigger>What is minimum investment?</AccordionTrigger>
         <AccordionContent>
-          Them minimum investment on PrimeBNB is 10$ of opBNB.
+          Them minimum investment on PrimeBNB is 0.004 opBNB.
         </AccordionContent>
       </AccordionItem>
       <AccordionItem value="item-3">
