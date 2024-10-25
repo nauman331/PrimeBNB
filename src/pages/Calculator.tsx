@@ -1,4 +1,3 @@
-// src/components/Calculator.tsx
 import  { useState } from 'react';
 import { Link } from "react-router-dom"
 import LeftNav from '../pagecomponents/leftnav';
@@ -23,7 +22,7 @@ const Calculator: React.FC = () => {
     const [open, setOpen] = useState<boolean>(true);
 
     const calculate = () => {
-      const total = referrals * (amount * 0.1);
+      const total = referrals * (amount * 10/100);
       setResult(total);
     };
 
@@ -74,11 +73,11 @@ const Calculator: React.FC = () => {
                                 <SelectContent>
                                     <SelectGroup className='bg-gray-950 text-white'>
                                         <SelectLabel>Plans</SelectLabel>
-                                        <SelectItem value="0.0175">Plan 1</SelectItem>
-                                        <SelectItem value="0.03438">Plan 2</SelectItem>
-                                        <SelectItem value="0.05286">Plan 3</SelectItem>
-                                        <SelectItem value="0.086">Plan 4</SelectItem>
-                                        <SelectItem value="0.86">Plan 5</SelectItem>
+                                        <SelectItem value="0.015">Plan 1</SelectItem>
+                                        <SelectItem value="0.085">Plan 2</SelectItem>
+                                        <SelectItem value="0.167">Plan 3</SelectItem>
+                                        <SelectItem value="0.5">Plan 4</SelectItem>
+                                        <SelectItem value="1">Plan 5</SelectItem>
                                     </SelectGroup>
                                 </SelectContent>
                             </Select>

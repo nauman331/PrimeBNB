@@ -346,11 +346,11 @@ const Dashboard: React.FC = () => {
             </div>
             <p>
               Deposited Amount:{" "}
-              <span className="text-yellow-400">{depositedAmount} opBNB</span>
+              <span className="text-yellow-400 font-bold">{depositedAmount} opBNB</span>
             </p>
             <p>
               Withdrawn Amount:{" "}
-              <span className="text-yellow-400">{withdrawnAmount} opBNB</span>
+              <span className="text-yellow-400 font-bold">{withdrawnAmount} opBNB</span>
             </p>
             <Dialog>
               <DialogTrigger asChild>
@@ -426,7 +426,7 @@ const Dashboard: React.FC = () => {
                 <h1 className="text-yellow-400 text-xl font-extrabold">
                   PLAN1:
                 </h1>
-                <p className="text-xs">Price: 10$ of opBNB</p>
+                <p className="text-xs">Price: <span className="text-yellow-400 font-bold">0.015 opBNB</span></p>
                 <p className="text-xs">Daily Earning: 5%</p>
                 <p className="text-xs">Per Refferal Earning: 10%</p>
                 <button
@@ -450,7 +450,7 @@ const Dashboard: React.FC = () => {
                 <h1 className="text-yellow-400 text-xl font-extrabold">
                   PLAN2:
                 </h1>
-                <p className="text-xs">Price: 20$ of opBNB</p>
+                <p className="text-xs">Price: <span className="text-yellow-400 font-bold">0.085 opBNB</span></p>
                 <p className="text-xs">Daily Earning: 5%</p>
                 <p className="text-xs">Per Refferal Earning: 10%</p>
                 <button
@@ -475,7 +475,7 @@ const Dashboard: React.FC = () => {
             />
             <div className="text">
               <h1 className="text-yellow-400 text-xl font-extrabold">PLAN3:</h1>
-              <p className="text-xs">Price: 30$ of opBNB</p>
+              <p className="text-xs">Price: <span className="text-yellow-400 font-bold">0.167 opBNB </span></p>
               <p className="text-xs">Daily Earning: 5%</p>
               <p className="text-xs">Per Refferal Earning: 10%</p>
               <button
@@ -497,7 +497,7 @@ const Dashboard: React.FC = () => {
             />
             <div className="text">
               <h1 className="text-yellow-400 text-xl font-extrabold">PLAN4:</h1>
-              <p className="text-xs">Price: 50$ of opBNB</p>
+              <p className="text-xs">Price: <span className="text-yellow-400 font-bold">0.5 opBNB</span></p>
               <p className="text-xs">Daily Earning: 3%</p>
               <p className="text-xs">Per Refferal Earning: 10%</p>
               <button
@@ -520,7 +520,7 @@ const Dashboard: React.FC = () => {
             />
             <div className="text">
               <h1 className="text-yellow-400 text-xl font-extrabold">PLAN5:</h1>
-              <p className="text-xs">Price: 500$ of opBNB</p>
+              <p className="text-xs">Price: <span className="text-yellow-400 font-bold">1 opBNB</span></p>
               <p className="text-xs">Daily Earning: 5%</p>
               <p className="text-xs">Per Refferal Earning: 10%</p>
               <button
@@ -536,25 +536,25 @@ const Dashboard: React.FC = () => {
           <div className="p-5 my-3 flex items-center justify-evenly md:w-1/3 w-[calc(100vw-3rem)] bg-gray-950 h-28 backdrop-filter backdrop-blur-sm bg-opacity-0 border border-white">
             <div className="text-lg font-bold">
               Partners
-              <h1 className="text-yellow-400">+{downliners}</h1>
+              <h1 className="text-yellow-400 font-bold">+{downliners}</h1>
             </div>
             <div className="text-lg font-bold">
               Total Income
-              <h1 className="text-yellow-400">+ {totalIncome} opBNB</h1>
+              <h1 className="text-yellow-400 font-bold">+ {totalIncome} opBNB</h1>
             </div>
           </div>
           <div className="p-5 flex-1 my-3 flex items-center justify-evenly md:w-1/3 w-[calc(100vw-3rem)] bg-gray-950 h-28 backdrop-filter backdrop-blur-sm bg-opacity-0 border border-white">
             <div className="text-lg font-bold">
               Total Members
-              <h1 className="text-yellow-400">{totalUsers}</h1>
+              <h1 className="text-yellow-400 font-bold">{totalUsers}</h1>
             </div>
             <div className="text-lg font-bold">
               Members Recieved
-              <h1 className="text-yellow-400">{totalWithdrawals} opBNB</h1>
+              <h1 className="text-yellow-400 font-bold">{totalWithdrawals} opBNB</h1>
             </div>
             <div className="text-lg font-bold">
               Members Deposited
-              <h1 className="text-yellow-400">{totalDeposits} opBNB</h1>
+              <h1 className="text-yellow-400 font-bold">{totalDeposits} opBNB</h1>
             </div>
           </div>
         </div>
