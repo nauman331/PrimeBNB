@@ -17,7 +17,7 @@ import { Input } from "../components/ui/input"
 
 const Calculator: React.FC = () => {
     const [referrals, setReferrals] = useState<number>(0);
-    const [amount, setAmount] = useState(0.01);
+    const [amount, setAmount] = useState(0.004);
     const [result, setResult] = useState<number | null>(null);
     const [open, setOpen] = useState<boolean>(true);
 
@@ -73,11 +73,11 @@ const Calculator: React.FC = () => {
                                 <SelectContent>
                                     <SelectGroup className='bg-gray-950 text-white'>
                                         <SelectLabel>Plans</SelectLabel>
-                                        <SelectItem value="0.015">Plan 1</SelectItem>
-                                        <SelectItem value="0.085">Plan 2</SelectItem>
-                                        <SelectItem value="0.167">Plan 3</SelectItem>
-                                        <SelectItem value="0.5">Plan 4</SelectItem>
-                                        <SelectItem value="1">Plan 5</SelectItem>
+                                        <SelectItem value="0.004">Plan 1</SelectItem>
+                                        <SelectItem value="0.008">Plan 2</SelectItem>
+                                        <SelectItem value="0.0118">Plan 3</SelectItem>
+                                        <SelectItem value="0.0196">Plan 4</SelectItem>
+                                        <SelectItem value="0.196">Plan 5</SelectItem>
                                     </SelectGroup>
                                 </SelectContent>
                             </Select>
