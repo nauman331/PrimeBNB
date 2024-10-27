@@ -4,7 +4,7 @@ import { Button } from "../components/ui/button";
 import { MenuIcon, Copy, XIcon } from "lucide-react";
 import style from "./dash.module.scss";
 import { useEffect, useState } from "react";
-// import PDF from "../assets/PrimeBNB.pdf";
+ import PDF from "../assets/prime-bnb.pdf";
 import {
   Dialog,
   DialogContent,
@@ -273,8 +273,8 @@ const Dashboard: React.FC = () => {
           <img src={profile} alt="PrimeBNB" className="h-16 w-20" />
         </Link>
         <a
-          href=''
-       
+         href={PDF}
+          download={PDF}
           className="text-white border-b-0 hover:border-b-2 border-b-white"
         >
           Docs
