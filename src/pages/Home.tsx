@@ -3,7 +3,7 @@ import profile from "../assets/logo.webp"
 import Carousel from "../pagecomponents/carousel";
 import Accordion from "../pagecomponents/accordion";
 import { Link } from "react-router-dom";
-// import PDF from "../assets/PrimeBNB.pdf"
+ import PDF from "../assets/prime-bnb.pdf"
 
 const Home: React.FC = () => {
 
@@ -14,8 +14,8 @@ const Home: React.FC = () => {
           <img src={profile} alt="PrimeBNB" className="h-16 w-20" />
         </Link>
         <a
-          href=''
-       
+        href={PDF}
+          download={PDF}
           className="text-white border-b-0 hover:border-b-2 border-b-white"
         >
           Docs
