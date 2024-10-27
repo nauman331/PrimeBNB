@@ -498,7 +498,7 @@ const Dashboard: React.FC = () => {
             <div className="text">
               <h1 className="text-yellow-400 text-xl font-extrabold">PLAN4:</h1>
               <p className="text-xs">Price: <span className="text-yellow-400 font-bold">0.0196 opBNB</span></p>
-              <p className="text-xs">Daily Earning: 3%</p>
+              <p className="text-xs">Daily Earning: 5%</p>
               <p className="text-xs">Per Refferal Earning: 10%</p>
               <button
                 onClick={() => handleActionClick(4)}
