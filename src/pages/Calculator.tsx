@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 import LeftNav from '../pagecomponents/leftnav';
 import { MenuIcon, XIcon } from "lucide-react"
 import profile from "../assets/logo.webp"
-// import PDF from "../assets/PrimeBNB.pdf"
+import PDF from "../assets/prime-bnb.pdf"
 import {
   Select,
   SelectContent,
@@ -33,8 +33,8 @@ const Calculator: React.FC = () => {
                     <img src={profile} alt="PrimeBNB" className="h-16 w-20" />
                 </Link>
                 <a
-                    href=''
-                    
+                    href={PDF}
+                    download={PDF}
                     className="text-white border-b-0 hover:border-b-2 border-b-white"
                 >
                     Docs
